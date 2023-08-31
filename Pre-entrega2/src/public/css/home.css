@@ -1,0 +1,44 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  text-decoration: none;
+}
+body {
+  background: #151414;
+  text-align: center;
+  height: 100vh;
+  width: 100%;
+  color: white;
+}
+h1,
+h2 {
+  text-align: center;
+}
+
+img {
+  margin-bottom: 10px;
+  height: 250px;
+  width: 250px;
+}
+
+.product-table {
+  justify-content: center;
+}
+a:hover,
+a:focus {
+  background-color: black;
+}
+.columns {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: white
+
+}
+.columna-50 {
+  width: 50vw;
+  padding: 5px;
+  text-align: center;
+}

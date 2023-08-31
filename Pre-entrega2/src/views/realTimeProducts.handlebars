@@ -1,0 +1,84 @@
+<div class="columns">
+  <div class="columna-50">
+    <h2>Lista de productos dinámica</h2>
+    <br />
+    <table class="table table-dark">
+      <thead>
+        <tr>
+          <th scope="col">Productos</th>
+          <th scope="col">Precio</th>
+          <th scope="col">Categoría</th>
+          <th scope="col">Código</th>
+          <th scope="col">Stock</th>
+          <th scope="col">Detalle</th>
+          <th scope="col">Eliminar</th>
+        </tr>
+      </thead>
+      <tbody id='productsTable'>
+        {{#each products.docs}}
+          <tr>
+            <td scope="row">{{title}}</th>
+            <td>${{price}}</td>
+            <td>{{category}}</td>
+            <td>{{code}}</td>
+            <td>{{stock}}u</td>
+            <td scope="row"><button><a href="/views/products/{{_id}}">Ver </a></button></td>
+            <td><button
+                class="delete-product"
+                data-id="{{id}}"
+              >Borrar</button></td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+
+    {{#if products.hasPrevPage}}
+      <button type="button" class="btn btn-secondary">
+        <a href="/views/realtimeproducts/page/{{products.prevPage}}">Anterior</a>
+      </button>
+    {{/if}}
+
+    {{#if products.hasNextPage}}
+      <button type="button" class="btn btn-secondary">
+        <a href="/views/realtimeproducts/page/{{products.nextPage}}">Siguiente</a>
+      </button>
+    {{/if}}
+
+    <br />
+  </div>
+  <div class="columna-50">
+    <h2>Agregar Producto</h2>
+    <br />
+    <form id="create-product-form">
+      <label for="product-title">Nombre</label>
+      <br />
+      <input type="text" id="product-title" name="title" />
+      <br />
+      <label for="product-price">Precio</label>
+      <br />
+      <input type="number" id="product-price" name="price" />
+      <br />
+      <label for="product-title">Descripcion</label>
+      <br />
+      <input type="text" id="product-description" name="description" />
+      <br />
+      <label for="product-title">Codigo</label>
+      <br />
+      <input type="text" id="product-code" name="code" />
+      <br />
+      <label for="product-title">Stock</label>
+      <br />
+      <input type="number" id="product-stock" name="stock" />
+      <br />
+      <label for="product-title">Category</label>
+      <br />
+      <input type="text" id="product-category" name="category" />
+      <br />
+      <button id="addProductButton" class="btn btn-secondary">Agregar al carrito</button>
+    </form>
+
+  </div>
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/index.js"></script>
